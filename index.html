@@ -1,122 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>index</title>
-    <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
-    <link rel="stylesheet" type="text/css" src="index2.css">
-    <style>
-        * {
-            margin : 0px;
-            padding :0px;
-        }
-        body{
-            margin : 0 20%;
-            background-image: url("project/image/img1.jpg");
-            background-repeat: no-repeat;
-            background-size: 1680px;
-        }
-        header{
-            width:100%;
-            height: 100px;
-        }
-        ul li{
-            list-style: none;
-            width:50%;
-            float:left;
-            text-align: center;
-            padding-top:10px;
-            cursor: pointer;
-            border-bottom: 1px solid black;
-        }
-        header h1{
-            text-align: center;
-            padding-top : 30px;
-        }
-        table{
-            width:100%;
-            border-top : 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td{
-            border-bottom: 1px solid black;
-            padding : 5px;
-            text-align: center;
-        }
-        th{
-            border-bottom: 3px solid black;
-        }
-        .info{
-            border-bottom : 1px solid black;
-        }
-        .info h3{
-            padding-top : 10px;
-            text-align: center;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>EPL Predictor - main</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/fontello/css/fontello.css">
+  <link rel="stylesheet" href="assets/vendor/fontello/css/animation.css"><!--[if IE 7]><link rel="stylesheet" href="path/to/fontello/css/fontello-ie7.css"><![endif]-->
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Selecao - v2.3.0
+  * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
-<body>
-    <header>
-        <h1>Soccer Predictor</h1>
-        <nav>
-            <ul>
-                <li onclick="location.href='index.html'">전체 랭킹</li>
-                <li onclick="location.href='project/html/epl_prediction.html'">팀별 승률</li>
-            </ul>
-        </nav>
-    </header>
+<body onload="showImage()">
 
-    <br>
-    <div class="info">
-        <h3>결과파일을 첨부하세요.</h3>
-        <input type="file" id="input">
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.html">EPL Predictor</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li class="drop-down"><a href="html/Ranking.html">Prediction</a>
+            <ul>
+              <li><a href="html/Ranking.html">Result Table</a></li>
+              <li><a href="html/epl_prediction.html">Odds</a>
+            </ul>
+          </li>
+          <li><a href="#cta">Ranking</a></li>
+          <li><a href="html/team.html">Teams</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">EPL 2020/21 Season</br>Predictor</h2>
+          <p class="animate__animated fanimate__adeInUp">프리미어 리그 2020/21 시즌 순위를 예측해 보세요.</p>
+          <a href="html/Ranking.html" class="btn-get-started animate__animated animate__fadeInUp scrollto">예측하기</a>
+        </div>
+      </div>
+
     </div>
 
-    
-    <table id="rank-table"></table>
-    
-    <script>
-        var input = document.getElementById("input");
-        
-        input.addEventListener("change", function(){
-            readXlsxFile(input.files[0]).then(function(data){
-                var i = 0;
-                data.map((row,index)=>{
-                    if(i==0){
-                        let table = document.getElementById("rank-table");
-                        generateTableHead(table,row);
-                    }
-                    if(i>0){
-                        let table = document.getElementById("rank-table");
-                        generateTableRows(table,row);
-                    }
-                    i++;
-                });
-            });
-        });
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
 
-        function generateTableHead(table,data){
-            let thead = table.createTHead();
-            let row = thead.insertRow();
-            for(let key of data){
-                let th = document.createElement("th");
-                let text = document.createTextNode(key);
-                th.appendChild(text);
-                row.appendChild(th);
-            }
-        }
+  </section><!-- End Hero -->
 
-        function generateTableRows(table,data){
-            let newRow = table.insertRow(-1);
-            data.map((row,index)=>{
-                let newCell = newRow.insertCell();
-                let newText = document.createTextNode(row);
-                newCell.appendChild(newText);
-            });
-        }
-    </script>
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>About</h2>
+          <p>Who we are</p>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+          <div class="col-lg-6">
+            <p>
+              세종대학교 AI 동아리 SAI의 '1조다음은2조'팀이 요즘 핫한 이슈인 EPL 2020/21의 결과 예측 사이트를 만들었습니다. 자신이 좋아하는 팀을 응원하며 재미삼아 승부를 예측해 보세요!
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> 데이터 셋을 기반으로 이번 시즌의 최종 등수와 승률을 예측</li>
+              <li><i class="ri-check-double-line"></i> 데이터 셋과 모델은 Kaggle을 참조</li>
+              <li><i class="ri-check-double-line"></i> 모델의 학습이 완벽하게 된 건 아니기 때문에, 정확도가 다소 떨어질 수 있음</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="assets/img/home/EPL.png" alt="" class="img-fluid">
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-out">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3>현재 내 최애 팀 순위는?</h3>
+            <p>공식 사이트에서 현재 순위를 확인해 현재 사이트에서 예측한 순위가 맞는지 비교해 보세요!</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="https://www.premierleague.com/tables">현재 EPL 순위 확인하기</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Contact</h2>
+          <p>Contact Us</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="icon-box" data-aos="zoom-in-left">
+              <div class="icon"><i class="icon-spa-moon-flag-2" style="color: #ff689b;"></i></div>
+              <h4 class="title"><a href="">장문경</a></h4>
+              <p class="description">Mail : zm8208@naver.com</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+              <div class="icon"><i class="icon-spa-star-trek" style="color: #3495eb;"></i></div>
+              <h4 class="title"><a href="">박나영</a></h4>
+              <p class="description">Mail : hcc9876@naver.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+              <div class="icon"><i class="icon-spa-stormtrooper" style="color: #6e6e6e;"></i></div>
+              <h4 class="title"><a href="">손상원</a></h4>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mt-5">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="300">
+              <div class="icon"><i class=" icon-spa-helmet-astronaut" style="color:#41cf2e;"></i></div>
+              <h4 class="title"><a href="">위영민</a></h4>
+              <p class="description">Mail : youngminieo1005@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-5">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
+              <div class="icon"><i class="icon-spa-space-walk" style="color: #e9bf06;"></i></div>
+              <h4 class="title"><a href="">최태규</a></h4>
+              <p class="description">Github : <a href="https://github.com/xhaktmchl">https://github.com/xhaktmchl</a></p>
+            </div>
+          </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>EPL Predictor</h3>
+      <p>세종대학교 동아리 SAI I팀 '1조다음은2조'</p>
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/selecao-bootstrap-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
